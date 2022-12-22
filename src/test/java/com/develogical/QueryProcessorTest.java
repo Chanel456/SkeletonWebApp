@@ -25,4 +25,9 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.findSquare(4), is(16));
     }
 
+    @Test
+    public void returnsWhatIsMyName(){
+        assertThat(queryProcessor.process("name"), is("Chanel and Daniella"));
+    }
+
 }
