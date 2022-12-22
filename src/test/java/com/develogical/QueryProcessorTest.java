@@ -20,4 +20,9 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("Shakespeare"), containsString("playwright"));
     }
 
+    @Test
+    public void returnsSquareOfNumber(){
+        assertThat(queryProcessor.findSquare(4), is(16));
+    }
+
 }

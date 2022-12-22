@@ -17,5 +17,8 @@ public class QueryProcessor {
 
         return "";
     }
-    
+
+    public int findSquare(int i) {
+        return i*i;
+    }
 }
