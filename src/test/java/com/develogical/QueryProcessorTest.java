@@ -35,4 +35,9 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("Which of the following numbers is the largest: 33, 89, 79?"),is("89"));
     }
 
+    @Test
+    public void returnsMinusOfNumbers(){
+        assertThat(queryProcessor.process("What is 87 minus 85?"), is("2"));
+    }
+
 }

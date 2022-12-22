@@ -35,6 +35,17 @@ public class QueryProcessor {
             return String.valueOf(numbers.get(numbers.size() - 1));
         }
 
+        if(query.toLowerCase().contains("minus")) {
+            String segments[]= query.substring(query.lastIndexOf("m") - 3).replace('?', ' ').replaceAll("minus ", "").trim().split(" ");
+            List<Integer> numbers = new ArrayList<Integer>();
+
+            for(String num: segments){
+                numbers.add(Integer.parseInt(num.trim()));
+            }
+            Integer result = numbers.get(0) - numbers.get(1);
+        return String.valueOf(result);
+        }
+
         return "";
     }
 
