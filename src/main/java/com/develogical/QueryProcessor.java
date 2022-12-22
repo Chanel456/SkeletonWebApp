@@ -18,15 +18,15 @@ public class QueryProcessor {
                     "writer in the English language and the world's pre-eminent dramatist.";
         }
 
-        if(query.toLowerCase().contains("name")){
+        if (query.toLowerCase().contains("name")) {
             return "Chanel and Daniella";
         }
 
-        if(query.toLowerCase().contains("largest")){
+        if (query.toLowerCase().contains("largest")) {
             List<Integer> numbers = new ArrayList<Integer>();
 
-            String segments[] = query.substring(query.lastIndexOf(":") + 1).replace('?',' ').split(",");
-            for(String num: segments){
+            String segments[] = query.substring(query.lastIndexOf(":") + 1).replace('?', ' ').split(",");
+            for (String num : segments) {
                 numbers.add(Integer.parseInt(num.trim()));
             }
 
@@ -35,15 +35,31 @@ public class QueryProcessor {
             return String.valueOf(numbers.get(numbers.size() - 1));
         }
 
-        if(query.toLowerCase().contains("minus")) {
-            String segments[]= query.substring(query.lastIndexOf("m") - 3).replace('?', ' ').replaceAll("minus ", "").trim().split(" ");
+        if (query.toLowerCase().contains("minus")) {
+            String segments[] = query.substring(query.lastIndexOf("m") - 3).replace('?', ' ').replaceAll("minus ", "").trim().split(" ");
             List<Integer> numbers = new ArrayList<Integer>();
 
-            for(String num: segments){
+            for (String num : segments) {
                 numbers.add(Integer.parseInt(num.trim()));
             }
             Integer result = numbers.get(0) - numbers.get(1);
-        return String.valueOf(result);
+            return String.valueOf(result);
+        }
+        if(query.toLowerCase().contains("multiplied")){
+            String segments[] = query
+                    .substring(query.lastIndexOf("m") - 2)
+                    .replace('?', ' ')
+                    .replaceAll("multiplied ", "")
+                    .replaceAll("by ", "")
+                    .trim()
+                    .split(" ");
+            List<Integer> numbers = new ArrayList<Integer>();
+            for (String num : segments) {
+                numbers.add(Integer.parseInt(num.trim()));
+            }
+            Integer result = numbers.get(0) * numbers.get(1);
+            return String.valueOf(result);
+
         }
 
         return "";

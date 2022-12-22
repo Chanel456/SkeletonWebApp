@@ -39,5 +39,8 @@ public class QueryProcessorTest {
     public void returnsMinusOfNumbers(){
         assertThat(queryProcessor.process("What is 87 minus 85?"), is("2"));
     }
-
+@Test
+    public void returnsMultiplicationNumber(){
+        assertThat(queryProcessor.process("What is 6 multiplied by 27"), is("162"));
+}
 }
