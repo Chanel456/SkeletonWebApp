@@ -30,4 +30,9 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("name"), is("Chanel and Daniella"));
     }
 
+    @Test
+    public void returnsLargestNumber(){
+        assertThat(queryProcessor.process("Which of the following numbers is the largest: 33, 89, 79?"),is("89"));
+    }
+
 }

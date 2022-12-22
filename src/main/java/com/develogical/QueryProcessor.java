@@ -1,6 +1,9 @@
 package com.develogical;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.function.BinaryOperator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,6 +20,19 @@ public class QueryProcessor {
 
         if(query.toLowerCase().contains("name")){
             return "Chanel and Daniella";
+        }
+
+        if(query.toLowerCase().contains("largest")){
+            List<Integer> numbers = new ArrayList<Integer>();
+
+            String segments[] = query.substring(query.lastIndexOf(":") + 1).replace('?',' ').split(",");
+            for(String num: segments){
+                numbers.add(Integer.parseInt(num.trim()));
+            }
+
+            Collections.sort(numbers);
+
+            return String.valueOf(numbers.get(numbers.size() - 1));
         }
 
         return "";
